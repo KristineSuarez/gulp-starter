@@ -14,7 +14,7 @@ const gulp = require("gulp"),
 
   gulp.task("scripts", 
     gulp.series("lint",
-    function() {
+    function scripts() {
     return gulp
         .src("./js/*.js")
         .pipe(terser())
@@ -44,4 +44,4 @@ gulp.task("watch", function() {
     gulp.watch("js/*.js", gulp.series("scripts"));
   });
 
-gulp.task("default", gulp.parallel("browser-sync", "scripts"));
+gulp.task("default", gulp.parallel("browser-sync", "watch"));
